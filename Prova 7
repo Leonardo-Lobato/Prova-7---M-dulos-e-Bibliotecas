@@ -1,0 +1,103 @@
+alunos = {}
+
+def AdicionarAluno():
+    """Adiciona um novo aluno ao dicionário."""
+    try:
+        matricula = input("Digite o número de matrícula: ")
+        if matricula in alunos:
+            print("Matrícula já existente. Use outra.")
+            return
+        nome = input("Digite o nome do aluno: ")
+        alunos[matricula] = nome
+        print("Aluno adicionado com sucesso!")
+    except Exception as e:
+        print(f"Erro ao adicionar aluno: {e}")
+
+def RemoverAluno():
+    """Remove um aluno do dicionário com base no número de matrícula."""
+    try:
+        matricula = input("Digite o número de matrícula do aluno a ser removido: ")
+        if matricula in alunos:
+            del alunos[matricula]
+            print("Aluno removido com sucesso!")
+        else:
+            print("Matrícula não encontrada.")
+    except Exception as e:
+        print(f"Erro ao remover aluno: {e}")
+
+def AtualizarAluno():
+    """Atualiza o nome de um aluno existente no dicionário."""
+    try:
+        matricula = input("Digite o número de matrícula do aluno a ser atualizado: ")
+        if matricula in alunos:
+            novo_nome = input("Digite o novo nome do aluno: ")
+            alunos[matricula] = novo_nome
+            print("Aluno atualizado com sucesso!")
+        else:
+            print("Matrícula não encontrada.")
+    except Exception as e:
+        print(f"Erro ao atualizar aluno: {e}")
+
+def VerAlunos():
+    """Exibe todos os alunos cadastrados no dicionário."""
+    if alunos:
+        print("\nLista de Alunos:")
+        for matricula, nome in alunos.items():
+            print(f"Matrícula: {matricula}, Nome: {nome}")
+    else:
+        print("Nenhum aluno cadastrado.")
+
+def Menu():
+    while True:
+        print("\n=== Sistema de Gerenciamento de Alunos ===")
+        print("1. Adicionar Aluno")
+        print("2. Remover Aluno")
+        print("3. Atualizar Aluno")
+        print("4. Ver Alunos")
+        print("5. Sair")
+
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == "1":
+            AdicionarAluno()
+        elif opcao == "2":
+            RemoverAluno()
+        elif opcao == "3":
+            AtualizarAluno()
+        elif opcao == "4":
+            VerAlunos()
+        elif opcao == "5":
+            print("Encerrando o programa. Até logo!")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    Menu()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
